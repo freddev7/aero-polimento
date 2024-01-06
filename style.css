@@ -5,12 +5,12 @@ body {
 }
 
 header {
-  margin-top: 3em;
+  margin-top: 1em;
   text-align: center;
 }
 
 header img {
-  max-width: 10rem;
+  max-width: 15rem;
 }
 
 #colorPickerContainer {
@@ -18,17 +18,12 @@ header img {
   position: absolute;
   z-index: 1;
   font-weight: 900;
+  font-size: 1.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   left: 0;
   right: 0;
-}
-
-#colorPickerContainer input {
-  border-radius: 0.5rem;
-  margin-top: 0.6rem;
-  
 }
 
 #container3D canvas {
@@ -54,11 +49,11 @@ header img {
 #auth_prod h2 {
   color: #b400da;
   font-weight: 100;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
 
 #auth_prod img {
-  max-width: 3rem;
+  max-width: 5rem;
 }
