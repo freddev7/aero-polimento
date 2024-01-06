@@ -26,6 +26,11 @@ header img {
   right: 0;
 }
 
+#colorPickerContainer input {
+  margin-top: 1rem;
+  width: 6rem;
+}
+
 #container3D canvas {
   width: 100vw !important;
   height: 100vh !important;
