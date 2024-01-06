@@ -5,12 +5,12 @@ body {
 }
 
 header {
-  margin-top: 1em;
+  margin-top: 3rem;
   text-align: center;
 }
 
 header img {
-  max-width: 15rem;
+  max-width: 20rem;
 }
 
 #colorPickerContainer {
@@ -18,7 +18,7 @@ header img {
   position: absolute;
   z-index: 1;
   font-weight: 900;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,11 +49,11 @@ header img {
 #auth_prod h2 {
   color: #b400da;
   font-weight: 100;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
 
 #auth_prod img {
-  max-width: 5rem;
+  max-width: 7rem;
 }
