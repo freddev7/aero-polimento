@@ -73,22 +73,15 @@ colorPicker.addEventListener('input', function (event) {
     }
 });
 
-renderer.domElement.addEventListener('click', function (event) {
-    if (canvasClickable) {
-        // Lógica para tratamento de cliques no canvas
-        console.log('Clicou no canvas.');
-    }
-});
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-document.addEventListener('click', function (event) {
-    if (event.target === colorPicker) {
-        // Desativar temporariamente os eventos de clique no canvas
-        canvasClickable = true;
-    } else {
-        // Ativar os eventos de clique no canvas novamente
-        canvasClickable = false;
-    }
-});
+// Substituir o seletor de cores por um modal personalizado em dispositivos móveis
+if (isMobile) {
+    colorPicker.addEventListener('click', () => {
+        // Implemente aqui a lógica para abrir um modal personalizado
+        alert('Abrir modal personalizado para escolher a cor');
+    });
+}
 
 // Adiciona event listener para teclas de seta
 document.addEventListener('keydown', function (event) {
