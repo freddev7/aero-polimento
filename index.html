@@ -9,6 +9,12 @@
   <meta charset="utf-8" />
   <title>Aero Polimento</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Adicione os estilos da biblioteca Spectrum.js -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+
+  <!-- Adicione a biblioteca Spectrum.js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+
 </head>
 
 <body>
@@ -19,7 +25,7 @@
   <main>
     <div id="colorPickerContainer">
       <label for="colorPicker">ESCOLHA A COR:</label>
-      <input type="color" id="colorPicker" value="#111111">
+      <input type="color" id="colorPicker">
     </div>
     <div id="container3D"></div>
   </main>
@@ -30,6 +36,16 @@
       <img src="logoauthprod.png" alt="logodf"></img>
     </a>
   </div>
+
+  <script>
+    // Inicializar a biblioteca Spectrum.js no elemento de input
+    $("#colorPicker").spectrum({
+      showPalette: true,
+      showInput: true,
+      preferredFormat: "hex",
+      // Outras opções de configuração podem ser adicionadas conforme necessário
+    });
+    </script>
 
   <script type="module" src="main.js"></script>
 </body>

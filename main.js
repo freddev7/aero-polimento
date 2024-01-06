@@ -73,15 +73,6 @@ colorPicker.addEventListener('input', function (event) {
     }
 });
 
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-// Substituir o seletor de cores por um modal personalizado em dispositivos móveis
-if (isMobile) {
-    colorPicker.addEventListener('click', () => {
-        // Implemente aqui a lógica para abrir um modal personalizado
-        alert('Abrir modal personalizado para escolher a cor');
-    });
-}
 
 // Adiciona event listener para teclas de seta
 document.addEventListener('keydown', function (event) {
