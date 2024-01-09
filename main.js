@@ -2,6 +2,7 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 5000);
@@ -9,7 +10,6 @@ camera.position.set(800, 100, 300);
 
 let object;
 let controls;
-let canvasClickable = true;
 
 const loader = new GLTFLoader();
 
@@ -21,13 +21,13 @@ document.getElementById("container3D").appendChild(renderer.domElement);
 const hlight = new THREE.AmbientLight(0x404040, 3);
 scene.add(hlight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 4);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(0, 1, 0);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
 const light = new THREE.PointLight(0xc4c4c4, 1);
-light.position.set(0, 300, 500);
+light.position.set(0, 300, -500);
 scene.add(light);
 
 const light2 = new THREE.PointLight(0xc4c4c4, 1);
@@ -51,7 +51,7 @@ controls.target.set(0, 0, 0);
 
 loader.load(`scene.gltf`, function (gltf) {
     object = gltf.scene;
-    object.getObjectByName('Layer0_Material_#25_0').material.color.setHex(0x110821);
+    object.getObjectByName('Layer0_Material_#25_0').material.color.setHex(0x030b0e);
 
     // Centralize o objeto na origem
     const box = new THREE.Box3().setFromObject(object);
@@ -63,15 +63,24 @@ loader.load(`scene.gltf`, function (gltf) {
 
 });
 
-const colorPicker = document.getElementById('colorPicker');
-colorPicker.addEventListener('input', function (event) {
-    const newColor = new THREE.Color(event.target.value);
+// script.js
+
+const colorPicker = $("#colorPicker"); // Use o seletor jQuery para obter o elemento colorPicker
+colorPicker.spectrum({
+  preferredFormat: "hex",
+  showInput: true,
+
+  
+  change: function(color) {
+    const newColor = new THREE.Color(color.toHexString());
     // Certifique-se de que o objeto foi carregado antes de tentar acessar seu material
     if (object && object.getObjectByName('Layer0_Material_#25_0')) {
-        // Aplique a nova cor ao material do objeto
-        object.getObjectByName('Layer0_Material_#25_0').material.color.copy(newColor);
+      // Aplique a nova cor ao material do objeto
+      object.getObjectByName('Layer0_Material_#25_0').material.color.copy(newColor);
     }
+  }
 });
+
 
 
 // Adiciona event listener para teclas de seta
