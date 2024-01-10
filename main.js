@@ -63,23 +63,40 @@ loader.load(`scene.gltf`, function (gltf) {
 
 });
 
-// script.js
 
-const colorPicker = $("#colorPicker"); // Use o seletor jQuery para obter o elemento colorPicker
+const colorPicker = $("#colorPicker");
+
 colorPicker.spectrum({
   preferredFormat: "hex",
   showInput: true,
+  showInitial: true,
+  showButtons: false,
+  showSelectionPalette: true,
+  replacerClassName: "custom-spectrum-replacer",
+  containerClassName: 'custom-spectrum-container',
 
-  
+  move: function(color) {
+    // Lógica a ser executada enquanto o usuário move o cursor
+    updateObjectColor(color);
+  },
+
   change: function(color) {
+    // Lógica a ser executada quando a seleção é finalizada
+    updateObjectColor(color);
+  }
+});
+
+function updateObjectColor(color) {
     const newColor = new THREE.Color(color.toHexString());
     // Certifique-se de que o objeto foi carregado antes de tentar acessar seu material
     if (object && object.getObjectByName('Layer0_Material_#25_0')) {
       // Aplique a nova cor ao material do objeto
       object.getObjectByName('Layer0_Material_#25_0').material.color.copy(newColor);
+      // Atualize a renderização
+     // Substitua isso com a função real de renderização do seu projeto
     }
   }
-});
+  
 
 
 

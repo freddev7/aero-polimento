@@ -26,11 +26,26 @@ header img {
   right: 0;
 }
 
-#colorPickerContainer input {
-  margin-top: 1rem;
-  width: 6rem;
-  border: none;
+#colorPickerContainer label {
+  margin-bottom: 1rem;
 }
+
+
+.custom-spectrum-container .sp-picker-container {
+  width: 222px;
+}
+
+.custom-spectrum-replacer {
+  width: 200px;
+  height: 30px;
+}
+
+.custom-spectrum-replacer .sp-preview {
+  width: 180px;
+  height: 30px;
+}
+
+
 
 #container3D canvas {
   width: 100vw !important;
