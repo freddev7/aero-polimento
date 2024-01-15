@@ -5,7 +5,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 5000);
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
 camera.position.set(800, 100, 300);
 
 let object;
@@ -47,11 +47,13 @@ controls.enableZoom = true;
 controls.enablePan = false;
 controls.minPolarAngle = 0;
 controls.maxPolarAngle = Math.PI;
-controls.target.set(0, 0, 0);
+controls.target.set(0, 0, 43);
 
 loader.load(`scene.gltf`, function (gltf) {
     object = gltf.scene;
-    object.getObjectByName('Layer0_Material_#25_0').material.color.setHex(0x030b0e);
+    console.log(object)
+    object.getObjectByName('Object_15').material.color.setHex(0xff0000);
+    object.getObjectByName('Object_13').material.color.setHex(0x000000);
 
     // Centralize o objeto na origem
     const box = new THREE.Box3().setFromObject(object);
@@ -89,34 +91,14 @@ colorPicker.spectrum({
 function updateObjectColor(color) {
     const newColor = new THREE.Color(color.toHexString());
     // Certifique-se de que o objeto foi carregado antes de tentar acessar seu material
-    if (object && object.getObjectByName('Layer0_Material_#25_0')) {
+    if (object && object.getObjectByName('Object_15')) {
       // Aplique a nova cor ao material do objeto
-      object.getObjectByName('Layer0_Material_#25_0').material.color.copy(newColor);
+      object.getObjectByName('Object_15').material.color.copy(newColor);
       // Atualize a renderização
-     // Substitua isso com a função real de renderização do seu projeto
+      // Substitua isso com a função real de renderização do seu projeto
     }
   }
   
-
-
-
-// Adiciona event listener para teclas de seta
-document.addEventListener('keydown', function (event) {
-    switch (event.key) {
-        case 'ArrowLeft':
-            rotateObject(-0.05); // Rotaciona para a esquerda
-            break;
-        case 'ArrowRight':
-            rotateObject(0.05); // Rotaciona para a direita
-            break;
-    }
-});
-
-function rotateObject(angle) {
-    if (object) {
-        object.rotation.y += angle;
-    }
-}
 
 function animate() {
     requestAnimationFrame(animate);
@@ -133,3 +115,8 @@ window.addEventListener("resize", function () {
 });
 
 animate();
+
+// Com recuros talvez podemos chegar além do previsto...
+// Encontrar soluções ao longo do percurso
+// + expertise
+// production decals ?
