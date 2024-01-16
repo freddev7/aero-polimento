@@ -5,7 +5,7 @@ body {
 }
 
 header {
-  margin-top: 3rem;
+  margin-top: 5rem;
   text-align: center;
 }
 
@@ -18,7 +18,7 @@ header img:nth-child(2) {
 }
 
 #colorPickerContainer {
-  margin-top: 2rem;
+  margin-top: 3rem;
   position: absolute;
   z-index: 1;
   font-weight: 900;
