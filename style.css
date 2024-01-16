@@ -13,6 +13,10 @@ header img {
   max-width: 20rem;
 }
 
+header img:nth-child(2) {
+  max-width: 30rem;
+}
+
 #colorPickerContainer {
   margin-top: 2rem;
   position: absolute;
