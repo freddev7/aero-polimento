@@ -10,11 +10,11 @@ header {
 }
 
 header img {
-  max-width: 20rem;
+  max-width: 18rem;
 }
 
 header img:nth-child(2) {
-  max-width: 30rem;
+  max-width: 28rem;
 }
 
 #colorPickerContainer {
